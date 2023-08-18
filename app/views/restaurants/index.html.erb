@@ -7,8 +7,10 @@
     <%= render restaurant %>
     <p>
       <%= link_to "Show this restaurant", restaurant %>
+      <% if restaurant.user == current_user %>
       <%= link_to "Edit", edit_restaurant_path(restaurant) %>
-      <%= link_to "Destroy", restaurant, method: :delete %>
+      <%= link_to "Destroy", restaurant, method: :delete, data: { confirm: "Etes vous sure ?" } %>
+      <% end %>
     </p>
   <% end %>
 </div>
