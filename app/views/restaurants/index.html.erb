@@ -7,6 +7,8 @@
     <%= render restaurant %>
     <p>
       <%= link_to "Show this restaurant", restaurant %>
+      <%= link_to "Edit", edit_restaurant_path(restaurant) %>
+      <%= link_to "Destroy", restaurant, method: :delete %>
     </p>
   <% end %>
 </div>
