@@ -7,12 +7,13 @@
     <%= render restaurant %>
     <p>
       <%= link_to "Show this restaurant", restaurant %>
-      <% if restaurant.user == current_user %>
+      <% if policy(restaurant).edit? %>
       <%= link_to "Edit", edit_restaurant_path(restaurant) %>
       <%= link_to "Destroy", restaurant, method: :delete, data: { confirm: "Etes vous sure ?" } %>
       <% end %>
     </p>
   <% end %>
 </div>
-
-<%= link_to "New restaurant", new_restaurant_path %>
+<% if policy(Restaurant).create? %>
+  <%= link_to "New restaurant", new_restaurant_path %>
+<% end %>
